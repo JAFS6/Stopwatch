@@ -1,4 +1,4 @@
-﻿using Core;
+﻿using Core.Factories;
 
 using StopwatchApplication.Commands;
 using StopwatchApplication.Converters;
@@ -11,10 +11,11 @@ namespace StopwatchApplication.Factories
     {
         public MainWindow Create()
         {
-            var stopwatch = new Stopwatch();
+            var stopwatchServiceFactory = new StopwatchServiceFactory();
+            var stopwatchService = stopwatchServiceFactory.Create();
             var timeUnitsConverter = new TimeUnitsConverter();
 
-            var manager = new StopwatchManager(stopwatch, timeUnitsConverter);
+            var manager = new StopwatchManager(stopwatchService, timeUnitsConverter);
 
             var startCommand = new RelayCommand(x => manager.StartStopwatch(), x => manager.CanStartStopwatch());
             var pauseCommand = new RelayCommand(x => manager.PauseStopwatch(), x => manager.CanPauseStopwatch());

@@ -2,7 +2,7 @@
 
 namespace Core
 {
-    public class Stopwatch
+    internal class Stopwatch : IStopwatchService
     {
         private IStopwatchState _state;
 

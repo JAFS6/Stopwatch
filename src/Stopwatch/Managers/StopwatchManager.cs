@@ -11,16 +11,16 @@ namespace StopwatchApplication.Managers
     {
         private const int IntervalUpdateTime = 100;
 
-        private readonly Stopwatch _stopwatchModel;
+        private readonly IStopwatchService _stopwatchService;
         private readonly TimeUnitsConverter _timeUnitsConverter;
         private CommandUpdater _commandUpdater;
 
-        public StopwatchManager(Stopwatch stopwatch, TimeUnitsConverter timeUnitsConverter)
+        public StopwatchManager(IStopwatchService stopwatchService, TimeUnitsConverter timeUnitsConverter)
         {
-            ParameterChecker.IsNotNull(stopwatch, nameof(stopwatch));
+            ParameterChecker.IsNotNull(stopwatchService, nameof(stopwatchService));
             ParameterChecker.IsNotNull(timeUnitsConverter, nameof(timeUnitsConverter));
 
-            _stopwatchModel = stopwatch;
+            _stopwatchService = stopwatchService;
             _timeUnitsConverter = timeUnitsConverter;
 
             Hours = new NotifyingValue<short>();
@@ -50,39 +50,39 @@ namespace StopwatchApplication.Managers
 
         public bool CanStartStopwatch()
         {
-            return _stopwatchModel.CanStart();
+            return _stopwatchService.CanStart();
         }
 
         public void StartStopwatch()
         {
-            _stopwatchModel.Start();
+            _stopwatchService.Start();
             _commandUpdater.UpdateCommandsState();
         }
 
         public bool CanPauseStopwatch()
         {
-            return _stopwatchModel.CanPause();
+            return _stopwatchService.CanPause();
         }
         public void PauseStopwatch()
         {
-            _stopwatchModel.Pause();
+            _stopwatchService.Pause();
             _commandUpdater.UpdateCommandsState();
         }
 
         public bool CanStopStopwatch()
         {
-            return _stopwatchModel.CanStop();
+            return _stopwatchService.CanStop();
         }
 
         public void StopStopwatch()
         {
-            _stopwatchModel.Stop();
+            _stopwatchService.Stop();
             _commandUpdater.UpdateCommandsState();
         }
 
         private void UpdateCount()
         {
-            long elapsedTime = _stopwatchModel.GetElapsedTime();
+            long elapsedTime = _stopwatchService.GetElapsedTime();
 
             Seconds.Value = _timeUnitsConverter.GetSeconds(elapsedTime);
             Minutes.Value = _timeUnitsConverter.GetMinutes(elapsedTime);
