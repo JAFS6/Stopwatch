@@ -5,7 +5,9 @@ VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stopwatch", "Stopwatch\Stopwatch.csproj", "{FAA64689-3DC4-4236-A6CA-FA513EBACD91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{D94FD017-56C0-49F4-96FD-EA7CEB3208BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{D94FD017-56C0-49F4-96FD-EA7CEB3208BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StopwatchTests", "StopwatchTests\StopwatchTests.csproj", "{2583CCF6-AFE1-4106-99E0-884621E6D0CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D94FD017-56C0-49F4-96FD-EA7CEB3208BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D94FD017-56C0-49F4-96FD-EA7CEB3208BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D94FD017-56C0-49F4-96FD-EA7CEB3208BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2583CCF6-AFE1-4106-99E0-884621E6D0CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2583CCF6-AFE1-4106-99E0-884621E6D0CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2583CCF6-AFE1-4106-99E0-884621E6D0CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2583CCF6-AFE1-4106-99E0-884621E6D0CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
