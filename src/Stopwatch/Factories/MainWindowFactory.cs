@@ -30,7 +30,7 @@ namespace StopwatchApplication.Factories
 
             var mainWindowViewModel = new MainWindowViewModel(hoursViewModel, minutesViewModel, secondsViewModel, startCommand, pauseCommand, stopCommand);
 
-            var mainWindow = new MainWindow();
+            var mainWindow = new MainWindow(manager);
             mainWindow.DataContext = mainWindowViewModel;
             return mainWindow;
         }

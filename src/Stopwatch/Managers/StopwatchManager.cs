@@ -7,13 +7,15 @@ using StopwatchApplication.ViewModels;
 
 namespace StopwatchApplication.Managers
 {
-    internal class StopwatchManager
+    internal class StopwatchManager : IDisposable
     {
         private const int IntervalUpdateTime = 100;
 
         private readonly IStopwatchService _stopwatchService;
         private readonly TimeUnitsConverter _timeUnitsConverter;
         private CommandUpdater _commandUpdater;
+
+        private bool _disposed;
 
         public StopwatchManager(IStopwatchService stopwatchService, TimeUnitsConverter timeUnitsConverter)
         {
@@ -29,7 +31,7 @@ namespace StopwatchApplication.Managers
 
             Task.Run(() =>
             {
-                while (true)
+                while (!_disposed)
                 {
                     UpdateCount();
                     Thread.Sleep(IntervalUpdateTime);
@@ -87,6 +89,29 @@ namespace StopwatchApplication.Managers
             Seconds.Value = _timeUnitsConverter.GetSeconds(elapsedTime);
             Minutes.Value = _timeUnitsConverter.GetMinutes(elapsedTime);
             Hours.Value = _timeUnitsConverter.GetHours(elapsedTime);
+        }
+
+        public void Dispose()
+        {
+            // Dispose of unmanaged resources.
+            Dispose(true);
+            // Suppress finalization.
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (_disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                // No other resources to dispose
+            }
+
+            _disposed = true;
         }
     }
 }
