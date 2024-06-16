@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-using Core;
+using StopwatchApplication.Factories;
 
 namespace StopwatchApplication
 {
@@ -9,7 +9,11 @@ namespace StopwatchApplication
     /// </summary>
     public partial class App : Application
     {
-        Stopwatch stopwatch = new Stopwatch();
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            MainWindowFactory factory = new MainWindowFactory();
+            MainWindow mainWindow = factory.Create();
+            mainWindow.Show();
+        }
     }
-
 }

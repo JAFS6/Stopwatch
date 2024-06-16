@@ -16,9 +16,15 @@ namespace Core.StopwatchStates
             _context = context;
         }
 
+        public abstract bool CanStart();
+
         public abstract void Start();
 
+        public abstract bool CanPause();
+
         public abstract void Pause();
+
+        public abstract bool CanStop();
 
         public abstract void Stop();
 

@@ -6,15 +6,30 @@
         {
         }
 
+        public override bool CanStart()
+        {
+            return false;
+        }
+
         public override void Start()
         {
             throw new InvalidOperationException("Already started.");
+        }
+
+        public override bool CanPause()
+        {
+            return true;
         }
 
         public override void Pause()
         {
             _context.RegisterTime();
             _context.ChangeState(States.Paused);
+        }
+
+        public override bool CanStop()
+        {
+            return true;
         }
 
         public override void Stop()

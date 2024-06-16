@@ -1,6 +1,6 @@
 ﻿namespace Core.Common.Validation
 {
-    internal class ParameterChecker
+    public class ParameterChecker
     {
         public static void IsNotNull(object parameter, string parameterName)
         {

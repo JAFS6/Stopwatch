@@ -37,6 +37,11 @@ namespace Core
             }
         }
 
+        public long GetElapsedTime()
+        {
+            return _state.GetElapsedTime();
+        }
+
         public void RegisterTime()
         {
             Times.Add(DateTime.Now);
@@ -45,6 +50,36 @@ namespace Core
         public void ClearTimeRegisters()
         {
             Times.Clear();
+        }
+
+        public bool CanStart()
+        {
+            return _state.CanStart();
+        }
+
+        public void Start()
+        {
+            _state.Start();
+        }
+
+        public bool CanPause()
+        {
+            return _state.CanPause();
+        }
+
+        public void Pause()
+        {
+            _state.Pause();
+        }
+
+        public bool CanStop()
+        {
+            return _state.CanStop();
+        }
+
+        public void Stop()
+        {
+            _state.Stop();
         }
     }
 }
