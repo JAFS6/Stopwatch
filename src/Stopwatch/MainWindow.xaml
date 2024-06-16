@@ -1,0 +1,34 @@
+﻿<Window x:Class="StopwatchApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StopwatchApplication"
+        xmlns:views="clr-namespace:StopwatchApplication.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="100" Width="400">
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+        <Grid HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <views:TwoDigitsNumberDisplayControl Grid.Column="0" HorizontalContentAlignment="Center" DataContext="{Binding HoursViewModel}" VerticalAlignment="Center"/>
+            <Label Content="::" Grid.Column="1" HorizontalContentAlignment="Center" VerticalAlignment="Center"/>
+            <views:TwoDigitsNumberDisplayControl Grid.Column="2" HorizontalContentAlignment="Center" DataContext="{Binding MinutesViewModel}" VerticalAlignment="Center"/>
+            <Label Content="::" Grid.Column="3" HorizontalContentAlignment="Center" VerticalAlignment="Center"/>
+            <views:TwoDigitsNumberDisplayControl Grid.Column="4" HorizontalContentAlignment="Center" DataContext="{Binding SecondsViewModel}" VerticalAlignment="Center"/>
+        </Grid>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Start" Command="{Binding StartCommand}" Width="80"/>
+            <Button Content="Pause" Command="{Binding PauseCommand}" Width="80"/>
+            <Button Content="Stop" Command="{Binding StopCommand}" Width="80"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
