@@ -1,4 +1,5 @@
-﻿using Core.StopwatchStates;
+﻿using Core.Factories;
+using Core.StopwatchStates;
 
 namespace Core
 {
@@ -14,27 +15,18 @@ namespace Core
         /// If on running state, difference between current time and last recorded time will be summed up.
         /// </remarks>
         public readonly IList<DateTime> Times;
+        private readonly StopwatchStatesFactory _stopwatchStatesFactory;
 
         public Stopwatch()
         {
             Times = new List<DateTime>();
             _state = new Ready(this);
+            _stopwatchStatesFactory = new StopwatchStatesFactory();
         }
 
         public void ChangeState(States newState)
         {
-            switch (newState)
-            {
-                case States.Ready:
-                    _state = new Ready(this);
-                    break;
-                case States.Running:
-                    _state = new Running(this);
-                    break;
-                case States.Paused:
-                    _state = new Paused(this);
-                    break;
-            }
+            _state = _stopwatchStatesFactory.Create(newState, this);
         }
 
         public long GetElapsedTime()
