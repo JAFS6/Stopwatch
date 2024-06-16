@@ -1,14 +1,15 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
+﻿using System.Windows;
 
-namespace Stopwatch
+using Core;
+
+namespace StopwatchApplication
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        Stopwatch stopwatch = new Stopwatch();
     }
 
 }
