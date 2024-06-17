@@ -13,6 +13,9 @@ Note: The usage of a dependency inyection framework for DI principle is not mand
 Following is the state machine of the stopwatch application:
 ![State machine diagram](doc/imgs/state_machine_diagram.JPG)
 
+## Behavior
+As it has not been required, when counter reach 23::59::59 it will go back to 00::00:00 to continue counting, instead of counting days or laps.
+
 ## License
 
 This application is licensed under the [MIT License](https://github.com/JAFS6/Stopwatch/blob/main/LICENSE).
