@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="100" Width="400">
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-        <Grid HorizontalAlignment="Center">
+        <Grid HorizontalAlignment="Center" Margin="0,5,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -20,14 +20,14 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <views:TwoDigitsNumberDisplayControl Grid.Column="0" HorizontalContentAlignment="Center" DataContext="{Binding HoursViewModel}" VerticalAlignment="Center"/>
-            <Label Content="::" Grid.Column="1" HorizontalContentAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="::" Grid.Column="1" HorizontalContentAlignment="Center" VerticalAlignment="Center" Padding="0"/>
             <views:TwoDigitsNumberDisplayControl Grid.Column="2" HorizontalContentAlignment="Center" DataContext="{Binding MinutesViewModel}" VerticalAlignment="Center"/>
-            <Label Content="::" Grid.Column="3" HorizontalContentAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="::" Grid.Column="3" HorizontalContentAlignment="Center" VerticalAlignment="Center" Padding="0"/>
             <views:TwoDigitsNumberDisplayControl Grid.Column="4" HorizontalContentAlignment="Center" DataContext="{Binding SecondsViewModel}" VerticalAlignment="Center"/>
         </Grid>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
             <Button Content="Start" Command="{Binding StartCommand}" Width="80"/>
-            <Button Content="Pause" Command="{Binding PauseCommand}" Width="80"/>
+            <Button Content="Pause" Command="{Binding PauseCommand}" Width="80" Margin="5,0,5,0"/>
             <Button Content="Stop" Command="{Binding StopCommand}" Width="80"/>
         </StackPanel>
     </StackPanel>
